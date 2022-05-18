@@ -99,7 +99,11 @@ the following objective
 
 ### Results
 
+The following figure shows how different digits are clustered within the latent space.
+
 ![encodings](results/encodings.png)
+
+The following figure shows some digits reconstructed by the model.
 
 ![reconstruction](results/reconstruction.png)
 
