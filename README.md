@@ -4,6 +4,8 @@ Tensorflow implementation of dense variational autoencoder for MNIST dataset.
 
 ### Background
 
+#### 1. Variational Inference
+
 In probabilistic modelling, one is often interested in inferring the posterior 
 distribution p(z|x) of some latent variables z given the observations x
 
@@ -38,6 +40,8 @@ The first term in the ELBO objective is the expected likelihood,
 which encourages the variational density q(z) of latent variables z to explain 
 the observations well. The second term is the negative KL divergence, which 
 encourages the variational density q(z) to be close to the prior p(z).
+
+#### 2. Variational Autoencoder
 
 Variational autoencoder (VAE) is a deep neural network architecture, designed to 
 efficiently perform variational inference on large scale datasets using 
@@ -76,6 +80,23 @@ of the KL term in the ELBO objective.
 
 ![equation](equations/Tex2Img_1652877249.jpg)
 
+#### 3. Disentangled representations learning
+
+According to Bengio [2], high dimensional real world data can be explained by a much smaller 
+number of independent latent factors of variation, which are commonly referred to as 
+disentangled representations. In machine learning, one is interested in learning such 
+representations in unsupervised fashion, by only considering the observations at hand. 
+A model that is able to learn disentangled representations, by only observing the 
+unlabeled data, can be used to improve supervised learning of downstream tasks, given 
+limited amount of labeled data [2].
+
+Modern state-of-the-art approaches for learning disentangled representations are mainly 
+based on variational autoencoders. In &beta;-VAE [3], disentangled representation learning 
+is forced by introducing an additional constraint &beta;>1 to the KL term, resulting in 
+the following objective
+
+![equation](equations/Tex2Img_1652878994.jpg)
+
 ### Results
 
 ![encodings](results/encodings.png)
@@ -86,6 +107,9 @@ of the KL term in the ELBO objective.
 
 1. Kingma, D. P., & Welling, M. (2013). Auto-encoding variational bayes. 
 ([arXiv:1312.6114](https://arxiv.org/pdf/1312.6114.pdf))
-2. Burgess, C. P., Higgins, I., Pal, A., Matthey, L., Watters, N., 
+2. Bengio, Y., Courville, A., & Vincent, P. (2013). Representation learning: 
+A review and new perspectives. IEEE transactions on pattern analysis and 
+machine intelligence, 35(8), 1798-1828.
+3. Burgess, C. P., Higgins, I., Pal, A., Matthey, L., Watters, N., 
 Desjardins, G., & Lerchner, A. (2018). Understanding disentangling 
 in $\beta$-VAE. ([arXiv:1804.03599](https://arxiv.org/pdf/1804.03599.pdf))
