@@ -26,8 +26,8 @@ class Encoder(tf.keras.layers.Layer):
 
     def __init__(
             self,
-            latent_dim,
-            units,
+            latent_dim: int,
+            units: list,
             **kwargs
     ):
         super(Encoder, self).__init__(**kwargs)
@@ -59,8 +59,8 @@ class Decoder(tf.keras.layers.Layer):
 
     def __init__(
             self,
-            output_dim,
-            units,
+            output_dim: int,
+            units: list,
             **kwargs
     ):
         super(Decoder, self).__init__(**kwargs)
@@ -117,10 +117,10 @@ class VariationalAutoencoder(tf.keras.Model):
 
     def __init__(
             self,
-            input_dim,
-            latent_dim,
-            units,
-            beta=1.,
+            input_dim: int,
+            latent_dim: int,
+            units: list,
+            beta: float = 1.,
             **kwargs
     ):
         super(VariationalAutoencoder, self).__init__(**kwargs)
