@@ -5,21 +5,34 @@ Tensorflow implementation of dense variational autoencoder for MNIST dataset.
 ### Background
 
 In probabilistic modelling, one is often interested in inferring the posterior 
-distribution p(z|x) of some latent variables z given the observations x. Variational 
-inference solves this problem by approximating the posterior distribution p(z|x) 
+distribution p(z|x) of some latent variables z given the observations x
+
+![equation](equations/Tex2Img_1652877859.jpg)
+
+The term in the denominator of above equation is called the evidence, the 
+calculation of which results in solving the following integral
+
+![qquation](equations/Tex2Img_1652877961.jpg)
+
+Unfortunately, this integral is hard to compute as it needs to be evaluated 
+over all configuration of latent variables z. Variational inference solves 
+this problem by approximating the posterior distribution p(z|x) 
 using optimization. 
 
 In variational inference we first choose a family Q of variational densities 
 q(z) over the latent variables z. The optimization problem then results 
 in searching for a candidate, which minimizes the Kullback-Leibler (KL) 
-divergence between the true posterior p(z|x) and its approximation q(z).
+divergence between the true posterior p(z|x) and its approximation q(z)
 
-Since the KL divergence cannot be computed, an alternative objective - the 
-evidence lower bound (ELBO) - is optimized, which corresponds to the KL 
-divergence except for a constant. Maximizing the ELBO is equivalent to minimizing 
-the KL divergence.
+![equation](equations/Tex2Img_1652878220.jpg)
 
-![formula](https://bit.ly/3woFQ9f)
+This objective is still intractable, since it still results in solving the 
+above integral. Since the KL divergence cannot be computed, an alternative 
+objective - the evidence lower bound (ELBO) - is optimized, which corresponds 
+to the KL divergence except for a constant. Maximizing the ELBO is equivalent 
+to minimizing the KL divergence.
+
+![equation](equations/Tex2Img_1652877787.jpg)
 
 The first term in the ELBO objective is the expected likelihood, 
 which encourages the variational density q(z) of latent variables z to explain 
@@ -46,13 +59,13 @@ shared among the different observations. However, since in SGD one commonly mini
 a loss  function with respect to network’s parameters, in VAE we minimize the negative 
 of the ELBO objective.
 
-![formula](https://bit.ly/3FXIaY1)
+![equation](equations/Tex2Img_1652877701.jpg)
 
 In order to be able to compute the gradients with respect to the parameters of the 
 VAE model, Kingma and Welling [1] introduce the reparametrization trick, which 
 allows sampling z from q(z|x) using the parameters of Q and a noise variable &epsilon;.
 
-![formula](https://bit.ly/3lo7YDo)
+![equation](equations/Tex2Img_1652877422.jpg)
 
 The expected likelihood in the ELBO objective is typically obtained by calculating either 
 the mean squared error or the binary crossentropy between the true observations and 
@@ -61,7 +74,7 @@ of observations, p(x|z), has been chosen to be Gaussian or Bernoulli, respective
 Finally, by choosing q(z|x) and p(z) to be Gaussian, one can derive a closed form solution 
 of the KL term in the ELBO objective.
 
-![formula](https://bit.ly/3MrDwnH)
+![equation](equations/Tex2Img_1652877249.jpg)
 
 ### Results
 
