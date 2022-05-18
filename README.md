@@ -75,8 +75,8 @@ The expected likelihood in the ELBO objective is typically obtained by calculati
 the mean squared error or the binary crossentropy between the true observations and 
 the reconstruction of the decoder network, depending on either the probability density 
 of observations, p(x|z), has been chosen to be Gaussian or Bernoulli, respectively.
-Finally, by choosing q(z|x) and p(z) to be Gaussian, one can derive a closed form solution 
-of the KL term in the ELBO objective.
+Finally, by choosing both q(z|x) and p(z) to be Gaussian distributions, one can derive 
+a closed form solution of the KL term in the ELBO objective.
 
 ![equation](equations/Tex2Img_1652877249.jpg)
 
