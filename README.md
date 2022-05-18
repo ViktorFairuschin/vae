@@ -19,7 +19,7 @@ evidence lower bound (ELBO) - is optimized, which corresponds to the KL
 divergence except for a constant. Maximizing the ELBO is equivalent to minimizing 
 the KL divergence.
 
-ELBO = E [log p(x|z)] - KL [q(z|x) || p(z)]
+![formula](http://www.sciweavers.org/tex2img.php?eq=ELBO_i%20%3D%20%5Cmathbb%7BE%7D_%7Bz%5Csim%20q%28z%7Cx_i%29%7D%20%5Cleft%20%5B%20%5Clog%20p%28x_i%7Cz%29%20%5Cright%20%5D%20-%20KL%5Cleft%20%28%20q%28z%7Cx_i%29%20%7C%7C%20p%28z%29%5Cright%20%29&bc=Transparent&fc=White&im=gif&fs=12&ff=arev&edit=0)
 
 The first term in the ELBO objective is the expected likelihood, 
 which encourages the variational density q(z) of latent variables z to explain 
@@ -47,7 +47,7 @@ a loss  function with respect to network’s parameters, in VAE we minimize the 
 of the ELBO objective.
 
 In order to be able to compute the gradients with respect to the parameters of the 
-VAE model, Kingma and Welling introduce the reparametrization trick, which 
+VAE model, Kingma and Welling [1] introduce the reparametrization trick, which 
 allows sampling z from q(z|x) using the parameters of Q and a noise variable &epsilon;.
 
 The expected likelihood in the ELBO objective is typically obtained by calculating either 
@@ -57,13 +57,16 @@ of observations, p(x|z), has been chosen to be Gaussian or Bernoulli, respective
 Finally, by choosing q(z|x) and p(z) to be Gaussian, one can derive a closed form solution 
 of the KL term in the ELBO objective.
 
-### Requirements
-
-`tensorflow==2.0.0` or higher, `numpy`, `matplotlib`
-
 ### Results
+
+![encodings](results/encodings.png)
+
+![reconstruction](results/reconstruction.png)
 
 ### References
 
-1. Kingma, D. P., & Welling, M. (2013). Auto-encoding variational bayes. ([arXiv:1312.6114](https://arxiv.org/pdf/1312.6114.pdf))
-2. Burgess, C. P., Higgins, I., Pal, A., Matthey, L., Watters, N., Desjardins, G., & Lerchner, A. (2018). Understanding disentangling in $\beta$-VAE. ([arXiv:1804.03599](https://arxiv.org/pdf/1804.03599.pdf))
+1. Kingma, D. P., & Welling, M. (2013). Auto-encoding variational bayes. 
+([arXiv:1312.6114](https://arxiv.org/pdf/1312.6114.pdf))
+2. Burgess, C. P., Higgins, I., Pal, A., Matthey, L., Watters, N., 
+Desjardins, G., & Lerchner, A. (2018). Understanding disentangling 
+in $\beta$-VAE. ([arXiv:1804.03599](https://arxiv.org/pdf/1804.03599.pdf))
