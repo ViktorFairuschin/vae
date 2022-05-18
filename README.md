@@ -4,12 +4,6 @@ Tensorflow implementation of dense variational autoencoder for MNIST dataset.
 
 ### Background
 
-Variational autoencoder (VAE) is a deep neural network architecture, designed to 
-efficiently perform variational inference on large scale datasets using 
-stochastic gradient descent (SGD). Similar to regular autoencoder, VAE consists 
-of an encoder and a decoder network, jointly trained to produce good 
-reconstructions of input data.
-
 In probabilistic modelling, one is often interested in inferring the posterior 
 distribution p(z|x) of some latent variables z given the observations x. Variational 
 inference solves this problem by approximating the posterior distribution p(z|x) 
@@ -31,6 +25,12 @@ The first term in the ELBO objective is the expected likelihood,
 which encourages the variational density q(z) of latent variables z to explain 
 the observations well. The second term is the negative KL divergence, which 
 encourages the variational density q(z) to be close to the prior p(z).
+
+Variational autoencoder (VAE) is a deep neural network architecture, designed to 
+efficiently perform variational inference on large scale datasets using 
+stochastic gradient descent (SGD). Similar to regular autoencoder, VAE consists 
+of an encoder and a decoder network, jointly trained to produce good 
+reconstructions of input data.
 
 In VAEs, we use the encoder to parametrize the approximate posterior q(z|x) 
 with an inference neural network, which takes as input a single observation 
