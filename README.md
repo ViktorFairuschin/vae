@@ -46,9 +46,13 @@ shared among the different observations. However, since in SGD one commonly mini
 a loss  function with respect to network’s parameters, in VAE we minimize the negative 
 of the ELBO objective.
 
+![formula](https://bit.ly/3FXIaY1)
+
 In order to be able to compute the gradients with respect to the parameters of the 
 VAE model, Kingma and Welling [1] introduce the reparametrization trick, which 
 allows sampling z from q(z|x) using the parameters of Q and a noise variable &epsilon;.
+
+![formula](https://bit.ly/3lo7YDo)
 
 The expected likelihood in the ELBO objective is typically obtained by calculating either 
 the mean squared error or the binary crossentropy between the true observations and 
@@ -56,6 +60,8 @@ the reconstruction of the decoder network, depending on either the probability d
 of observations, p(x|z), has been chosen to be Gaussian or Bernoulli, respectively.
 Finally, by choosing q(z|x) and p(z) to be Gaussian, one can derive a closed form solution 
 of the KL term in the ELBO objective.
+
+![formula](https://bit.ly/3MrDwnH)
 
 ### Results
 
