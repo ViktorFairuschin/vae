@@ -1,5 +1,5 @@
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' #  disable tensorflow warnings
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # disable tensorflow warnings
 
 import tensorflow as tf
 import numpy as np
@@ -7,14 +7,14 @@ import matplotlib.pyplot as plt
 
 
 def preprocess_images(images):
-    """ Reshape and rescale images. """
+    """ Helper function used to reshape and rescale images. """
     images = tf.reshape(images, shape=(tf.shape(images)[0], 28 * 28))
     images = tf.cast(images, tf.dtypes.float32) / 255.
     return images
 
 
 def create_labels(inputs):
-    """ Create input output pairs"""
+    """ Helper function used to create input-output pairs for training. """
     return inputs, inputs
 
 
@@ -23,7 +23,6 @@ def create_dataset(batch=32):
     (train_images, _), (test_images, test_labels) = tf.keras.datasets.mnist.load_data()
 
     train_size = train_images.shape[0]
-    test_size = test_images.shape[0]
 
     train_dataset = tf.data.Dataset.from_tensor_slices(train_images)
     train_dataset = train_dataset.shuffle(train_size).batch(batch).map(preprocess_images).map(create_labels)
@@ -37,7 +36,8 @@ def plot_encoding(inputs, labels, save_dir=None):
     """ Plot encodings. """
     plt.figure()
     plt.title('encodings')
-    plt.scatter(inputs[:, 0], inputs[:, 1], c=labels)
+    cmap = plt.get_cmap('gist_rainbow', 10)
+    plt.scatter(inputs[:, 0], inputs[:, 1], c=labels, cmap=cmap)
     plt.colorbar()
     plt.tight_layout()
     if save_dir:

@@ -1,24 +1,29 @@
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' #  disable tensorflow warnings
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # disable tensorflow warnings
 
 import tensorflow as tf
 from tensorflow.keras.callbacks import TensorBoard
+import datetime
 from vae.model import VariationalAutoencoder
 from vae.utils import create_dataset, plot_encoding, plot_reconstruction
 
 
 def main():
 
+    # set random seed
+
+    tf.random.set_seed(42)
+
     # define models parameters
 
     units = [128, 64, 32]
     latent_dim = 2
     input_dim = 28 * 28
-    beta = 1.
+    beta = 10.
 
     # create optimizer
 
-    optimizer = tf.keras.optimizers.Adam()
+    optimizer = tf.keras.optimizers.Adam(learning_rate=0.0001)
 
     # create model
     model = VariationalAutoencoder(input_dim=input_dim, latent_dim=latent_dim, units=units, beta=beta)
@@ -33,11 +38,12 @@ def main():
 
     # create tensorboard callback
 
-    tensorboard = TensorBoard(log_dir='./logs')
+    log_dir = './logs/' + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    tensorboard = TensorBoard(log_dir=log_dir)
 
     # train model
 
-    model.fit(train_dataset, epochs=50, callbacks=[tensorboard])
+    model.fit(train_dataset, epochs=100, callbacks=[tensorboard])
 
     # plot encodings
 

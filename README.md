@@ -2,6 +2,15 @@
 
 Tensorflow implementation of dense variational autoencoder for MNIST.
 
+### Theory
+
+#### Variational inference
+
+In probabilistic modelling, one is often interested in inferring the posterior distribution p(z|x) 
+of some latent variables z given the observations x
+
+<img src="https://latex.codecogs.com/svg.image?p(z|x)=\frac{p(z,x)}{p(x)}" />
+
 ### Requirements
 
 `tensorflow 2.0.0` or higher, `numpy`, `matplotlib`
