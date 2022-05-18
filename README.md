@@ -19,7 +19,7 @@ evidence lower bound (ELBO) - is optimized, which corresponds to the KL
 divergence except for a constant. Maximizing the ELBO is equivalent to minimizing 
 the KL divergence.
 
-![formula](http://www.sciweavers.org/tex2img.php?eq=ELBO_i%20%3D%20%5Cmathbb%7BE%7D_%7Bz%5Csim%20q%28z%7Cx_i%29%7D%20%5Cleft%20%5B%20%5Clog%20p%28x_i%7Cz%29%20%5Cright%20%5D%20-%20KL%5Cleft%20%28%20q%28z%7Cx_i%29%20%7C%7C%20p%28z%29%5Cright%20%29&bc=Transparent&fc=White&im=gif&fs=12&ff=arev&edit=0)
+![formula](https://bit.ly/3woFQ9f)
 
 The first term in the ELBO objective is the expected likelihood, 
 which encourages the variational density q(z) of latent variables z to explain 
