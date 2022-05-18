@@ -103,7 +103,7 @@ The following figure shows how different digits are clustered within the latent 
 
 ![encodings](results/encodings.png)
 
-The following figure shows some digits reconstructed by the model.
+The following figure shows how digits are reconstructed by the model.
 
 ![reconstruction](results/reconstruction.png)
 
