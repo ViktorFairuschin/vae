@@ -9,13 +9,13 @@ Tensorflow implementation of dense variational autoencoder for MNIST dataset.
 In probabilistic modeling, one is often interested in inferring the posterior 
 distribution p(z|x) of some latent variable z given the observations x
 
-![equation](equations/dark_mode/1.png#gh-dark-mode-only)
+![equation](equations/dark_mode/1.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/1.svg#gh-light-mode-only)
 
 The term in the denominator of equation (1) is called the evidence, the 
 calculation of which results in solving the following integral
 
-![equation](equations/dark_mode/2.png#gh-dark-mode-only)
+![equation](equations/dark_mode/2.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/2.svg#gh-light-mode-only)
 
 Unfortunately, the integral in equation (2) is hard to compute since 
