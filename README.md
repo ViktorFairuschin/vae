@@ -25,7 +25,7 @@ distribution p(z|x) in equation (1) using optimization.
 
 In variational inference, we first choose a family Q of variational 
 densities q(z) over the latent variables z. The optimization problem 
-then results in searching for a candidate that satisfies the 
+then results in searching for a candidate that minimizes the 
 Kullback-Leibler (KL) divergence between the true posterior p(z|x) 
 and its approximation q(z)
 
