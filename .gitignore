@@ -128,9 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Tensorboard logs
-.logs/
-
-# Equations
-.equations/
 
