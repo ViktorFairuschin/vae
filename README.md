@@ -2,9 +2,9 @@
 
 This is a TensorFlow implementation of dense variational autoencoder for MNIST dataset.
 
-### A brief introduction to variational autoencoders
+## A brief introduction to variational autoencoders
 
-#### 1. Variational Inference
+### 1. Variational Inference
 
 In probabilistic modeling, one is often interested in inferring the posterior 
 distribution p(z|x) of some latent variables z given the observations x
@@ -78,7 +78,7 @@ equations (5) and (6) together and obtain
 Since the KL divergence is always non-negative (which can be proved by 
 Jensen's inequality) log p(x) is always greater than or equal to ELBO.
 
-#### 2. Variational Autoencoder
+### 2. Variational Autoencoder
 
 Variational autoencoder (VAE) is a deep neural network architecture, designed to 
 efficiently perform variational inference on large scale datasets using 
@@ -129,7 +129,7 @@ observations and the reconstruction of the decoder network, depending on
 whether the probability density of the observations, p<sub>&#632;</sub>(x|z), has 
 been chosen to be Gaussian or Bernoulli, respectively.
 
-#### 3. Disentangled representations learning
+### 3. Disentangled representations learning
 
 According to Bengio [2], high dimensional real world data can be explained by 
 a much smaller number of independent latent factors of variation, which are 
@@ -148,7 +148,7 @@ constraint &beta;>1 to the KL term, resulting in the following objective
 ![equation](equations/dark_mode/12.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/12.svg#gh-light-mode-only)
 
-### Results
+## Results
 
 The following figure shows how different digits are clustered within the latent space.
 
@@ -158,7 +158,7 @@ The following figure shows how digits are reconstructed by the model.
 
 ![reconstruction](results/reconstruction.png)
 
-### References
+## References
 
 1. Kingma, D. P., & Welling, M. (2013). Auto-encoding variational bayes. 
 ([arXiv:1312.6114](https://arxiv.org/pdf/1312.6114.pdf))
