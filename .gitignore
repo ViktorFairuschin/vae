@@ -131,3 +131,6 @@ dmypy.json
 # Tensorboard logs
 .logs/
 
+# Equations
+.equations/
+
