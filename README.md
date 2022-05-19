@@ -29,18 +29,18 @@ then results in searching for a candidate that satisfies the
 Kullback-Leibler (KL) divergence between the true posterior p(z|x) 
 and its approximation q(z)
 
-![equation](equations/dark_mode/3.png#gh-dark-mode-only)
+![equation](equations/dark_mode/3.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/3.svg#gh-light-mode-only)
 
 The objective in equation (3) is still intractable. To show this, 
 we first rewrite the KL divergence term
 
-![equation](equations/dark_mode/4.png#gh-dark-mode-only)
+![equation](equations/dark_mode/4.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/4.svg#gh-light-mode-only)
 
 Substituting equation (1) into equation (4), we obtain
 
-![equation](equations/dark_mode/5.png#gh-dark-mode-only)
+![equation](equations/dark_mode/5.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/5.svg#gh-light-mode-only)
 
 which again results in solving the integral of equation (2). 
@@ -48,7 +48,7 @@ Since the KL divergence in equation (3) cannot be computed, an
 alternative objective is optimized which corresponds to the 
 KL divergence except for a constant
 
-![equation](equations/dark_mode/6.png#gh-dark-mode-only)
+![equation](equations/dark_mode/6.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/6.svg#gh-light-mode-only)
 
 The objective in equation (6) is called the evidence lower bound (ELBO). 
@@ -59,7 +59,7 @@ respect to q(z).
 
 Substituting (1) into (6), we obtain
 
-![equation](equations/dark_mode/7.png#gh-dark-mode-only)
+![equation](equations/dark_mode/7.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/7.svg#gh-light-mode-only)
 
 The first term on the right-hand side of equation (7) is the expected 
@@ -72,7 +72,7 @@ Another property of the ELBO that explains its name is that it defines
 the lower bound of the evidence in equation (2). To show this, we add 
 equations (5) and (6) together and obtain
 
-![equation](equations/dark_mode/8.png#gh-dark-mode-only)
+![equation](equations/dark_mode/8.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/8.svg#gh-light-mode-only)
 
 Since the KL divergence is always non-negative (which can be proved by 
@@ -101,7 +101,7 @@ of both networks, one needs to calculate the ELBO for each observation separatel
 This can easily be done under assumption, that the latent variables z are not 
 shared among the different observations
 
-![equation](equations/dark_mode/9.png#gh-dark-mode-only)
+![equation](equations/dark_mode/9.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/9.svg#gh-light-mode-only)
 
 However, since in SGD one commonly minimizes a loss  function with respect 
@@ -113,14 +113,14 @@ VAE model, Kingma and Welling [1] introduce the reparametrization trick, which
 allows sampling z from q<sub>&theta;</sub>(z|x) using the parameters of Q and 
 a noise variable &epsilon;
 
-![equation](equations/dark_mode/10.png#gh-dark-mode-only)
+![equation](equations/dark_mode/10.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/10.svg#gh-light-mode-only)
 
 By choosing both q<sub>&theta;</sub>(z|x) and p(z) to be Gaussian 
 distributions, one can derive a closed form solution of the KL term in the 
 equation (9)
 
-![equation](equations/dark_mode/11.png#gh-dark-mode-only)
+![equation](equations/dark_mode/11.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/11.svg#gh-light-mode-only)
 
 The expected likelihood in equation (9) is typically obtained by calculating 
@@ -145,7 +145,7 @@ are mainly based on variational autoencoders. In &beta;-VAE [3], for example,
 disentangled representation learning is forced by introducing an additional 
 constraint &beta;>1 to the KL term, resulting in the following objective
 
-![equation](equations/dark_mode/12.png#gh-dark-mode-only)
+![equation](equations/dark_mode/12.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/12.svg#gh-light-mode-only)
 
 ### Results
