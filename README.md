@@ -2,7 +2,7 @@
 
 This is a TensorFlow implementation of dense variational autoencoder for MNIST dataset.
 
-### Background
+### A brief introduction to variational autoencoders
 
 #### 1. Variational Inference
 
