@@ -16,7 +16,7 @@ def main():
 
     # define models parameters
 
-    units = [128, 64, 32]
+    units = [512, 256, 128, 64, 32, 16, 8]
     latent_dim = 2
     input_dim = 28 * 28
     beta = 10.
@@ -43,7 +43,7 @@ def main():
 
     # train model
 
-    model.fit(train_dataset, epochs=100, callbacks=[tensorboard])
+    model.fit(train_dataset, epochs=200, callbacks=[tensorboard])
 
     # plot encodings
 
