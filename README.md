@@ -65,7 +65,7 @@ Substituting (1) into (6), we obtain
 The first term on the right-hand side of equation (7) is the expected 
 likelihood which encourages the variational density q(z) of the latent 
 variables to explain the observations well. The second term is the 
-negative KL divergence, which encourages the variation density q(z) 
+negative KL divergence, which encourages the variational density q(z) 
 to be close to the prior p(z).
 
 Another property of the ELBO that explains its name is that it defines 
@@ -88,7 +88,7 @@ reconstructions of input data.
 
 In VAE, we use the encoder to parameterize the approximate posterior 
 q<sub>&theta;</sub>(z|x) with an inference neural network with 
-parameters &theta; (i.e., weights and biases) that takes as input 
+parameters &theta; (i.e. weights and biases) that takes as input 
 a single observation x and returns the parameters of Q, typically chosen 
 to be Gaussian. Similarly, we use the decoder to parameterize the 
 probability p<sub>&#632;</sub>(x|z) with a generative neural network 
@@ -167,4 +167,4 @@ A review and new perspectives. IEEE transactions on pattern analysis and
 machine intelligence, 35(8), 1798-1828.
 3. Burgess, C. P., Higgins, I., Pal, A., Matthey, L., Watters, N., 
 Desjardins, G., & Lerchner, A. (2018). Understanding disentangling 
-in $\beta$-VAE. ([arXiv:1804.03599](https://arxiv.org/pdf/1804.03599.pdf))
+in &beta;-VAE. ([arXiv:1804.03599](https://arxiv.org/pdf/1804.03599.pdf))
