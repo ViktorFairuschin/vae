@@ -1,13 +1,13 @@
 # Variational Autoencoder
 
-Tensorflow implementation of dense variational autoencoder for MNIST dataset.
+This is a TensorFlow implementation of dense variational autoencoder for MNIST dataset.
 
 ### Background
 
 #### 1. Variational Inference
 
 In probabilistic modeling, one is often interested in inferring the posterior 
-distribution p(z|x) of some latent variable z given the observations x
+distribution p(z|x) of some latent variables z given the observations x
 
 ![equation](equations/dark_mode/1.svg#gh-dark-mode-only)
 ![equation](equations/light_mode/1.svg#gh-light-mode-only)
@@ -19,7 +19,7 @@ calculation of which results in solving the following integral
 ![equation](equations/light_mode/2.svg#gh-light-mode-only)
 
 Unfortunately, the integral in equation (2) is hard to compute since 
-it must be evaluated over all configurations of the latent variable z. 
+it must be evaluated over all configurations of the latent variables z. 
 Variational inference solves this problem by approximating the posterior 
 distribution p(z|x) in equation (1) using optimization. 
 
@@ -53,7 +53,7 @@ KL divergence except for a constant
 
 The objective in equation (6) is called the evidence lower bound (ELBO). 
 Maximizing the ELBO is equivalent to minimizing the KL divergence of 
-equation (3), since the ELBO target is equal to the sum of the 
+equation (3), since the ELBO objective is equal to the sum of the 
 negative KL divergence and log p(x). The latter one is constant with 
 respect to q(z).
 
@@ -64,7 +64,7 @@ Substituting (1) into (6), we obtain
 
 The first term on the right-hand side of equation (7) is the expected 
 likelihood which encourages the variational density q(z) of the latent 
-variable to explain the observations well. The second term is the 
+variables to explain the observations well. The second term is the 
 negative KL divergence, which encourages the variation density q(z) 
 to be close to the prior p(z).
 
@@ -91,12 +91,12 @@ q<sub>&theta;</sub>(z|x) with an inference neural network with
 parameters &theta; (i.e., weights and biases) that takes as input 
 a single observation x and returns the parameters of Q, typically chosen 
 to be Gaussian. Similarly, we use the decoder to parameterize the 
-probability p<sub>&phi;</sub>(x|z) with a generative neural network 
-with parameters &phi;, which takes as input samples of latent variables 
+probability p<sub>&#632;</sub>(x|z) with a generative neural network 
+with parameters &#632;, which takes as input samples of latent variables 
 z and outputs parameters of the distribution of observations, typically 
 chosen to be Bernoulli or Gaussian.
 
-Since VAEs use SGD to jointly optimize the parameters &theta; and &phi;
+Since VAEs use SGD to jointly optimize the parameters &theta; and &#632;
 of both networks, one needs to calculate the ELBO for each observation separately. 
 This can easily be done under assumption, that the latent variables z are not 
 shared among the different observations
@@ -126,7 +126,7 @@ equation (9)
 The expected likelihood in equation (9) is typically obtained by calculating 
 either the mean squared error or the binary cross entropy between the true 
 observations and the reconstruction of the decoder network, depending on 
-whether the probability density of the observations, p<sub>&phi;</sub>(x|z), has 
+whether the probability density of the observations, p<sub>&#632;</sub>(x|z), has 
 been chosen to be Gaussian or Bernoulli, respectively.
 
 #### 3. Disentangled representations learning
